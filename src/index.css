@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+/* Base styling for common elements */
+@layer base {
+  :root { color-scheme: light; }
+  body { @apply bg-gray-50 text-gray-900; }
+
+  input, select, textarea {
+    @apply w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm
+           outline-none focus:border-gray-400 focus:ring-2 focus:ring-black/10;
+  }
+
+  button {
+    @apply rounded-md border border-gray-300 bg-white px-3 py-2 text-sm
+           hover:bg-gray-50 active:bg-gray-100;
+  }
+
+  table { @apply w-full border-collapse; }
+  thead th { @apply bg-gray-100 px-3 py-2 text-left text-xs font-semibold text-gray-600; }
+  tbody td { @apply border-t border-gray-100 px-3 py-2 text-sm; }
+}
+
+/* Reusable component classes used in App.jsx */
+@layer components {
+  .btn-primary { @apply rounded-md bg-black px-3 py-2 text-sm font-medium text-white shadow
+                         hover:bg-gray-800 active:bg-gray-900 disabled:opacity-60; }
+  .tab        { @apply rounded-md border bg-white px-3 py-1.5 text-sm hover:bg-gray-50; }
+  .tab-active { @apply bg-black text-white border-black; }
+}
