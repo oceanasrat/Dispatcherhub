@@ -1,13 +1,13 @@
+// src/AppRoutes.jsx
 import { Routes, Route } from "react-router-dom";
-
 import LoadsPro from "./pages/LoadsPro";
 import InvoicesPro from "./pages/InvoicesPro";
 import Documents from "./pages/Documents";
 import DriverPortal from "./pages/DriverPortal";
 import Admin from "./pages/Admin";
+import Board from "./pages/Board";
 import TestLogin from "./pages/TestLogin";
 import NotFound from "./pages/NotFound";
-import Board from "./pages/Board";
 
 export default function AppRoutes() {
   return (
