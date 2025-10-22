@@ -1,29 +1,23 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* Base styling for common elements */
-@layer base {
-  :root { color-scheme: light; }
-  body { @apply bg-gray-50 text-gray-900; }
+/* layout */
+html, body, #root { height: 100%; margin: 0; }
+:root { --radius: 1rem; }
+body { @apply font-sans; }
 
-  input, select, textarea {
-    @apply w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm
-           outline-none focus:border-gray-400 focus:ring-2 focus:ring-black/10;
-  }
+.container-max { @apply mx-auto max-w-7xl px-4; }
+.section { @apply container-max py-16 md:py-20; }
 
-  button {
-    @apply rounded-md border border-gray-300 bg-white px-3 py-2 text-sm
-           hover:bg-gray-50 active:bg-gray-100;
-  }
+/* surfaces & primitives */
+.card { @apply bg-surface border border-border rounded-2xl shadow-soft; }
+.badge { @apply inline-flex items-center rounded-full bg-black/5 text-foreground px-3 py-1 text-xs; }
+.btn { @apply inline-flex items-center justify-center rounded-xl px-4 py-2 font-medium transition; }
+.btn-primary { @apply btn bg-primary text-white hover:bg-primaryHover; }
+.btn-outline { @apply btn border border-border text-foreground hover:bg-black/5; }
+.input, .textarea, select { @apply w-full rounded-xl bg-white border border-border px-3 py-2 outline-none focus:border-primary; }
 
-  table { @apply w-full border-collapse; }
-  thead th { @apply bg-gray-100 px-3 py-2 text-left text-xs font-semibold text-gray-600; }
-  tbody td { @apply border-t border-gray-100 px-3 py-2 text-sm; }
-}
-
-/* Reusable component classes used in App.jsx */
-@layer components {
-  .btn-primary { @apply rounded-md bg-black px-3 py-2 text-sm font-medium text-white shadow
-                         hover:bg-gray-800 active:bg-gray-900 disabled:opacity-60; }
-  .tab        { @apply rounded-md border bg-white px-3 py-1.5 text-sm hover:bg-gray-50; }
-  .tab-active { @apply bg-black text-white border-black; }
-}
+/* type scale */
+.heading { @apply text-2xl md:text-3xl font-semibold; }
+.subtle { @apply text-sm text-muted leading-relaxed; }
