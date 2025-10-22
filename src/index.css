@@ -1,24 +1,29 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-/* Subtle background vibe */
+/* Base styling for common elements */
 @layer base {
-  body {
-    background:
-      radial-gradient(1200px 400px at 50% -200px, rgba(96,165,250,0.12), transparent 60%),
-      radial-gradient(600px 200px at 100% 0%, rgba(99,102,241,0.10), transparent 50%),
-      radial-gradient(800px 300px at 0% 0%, rgba(16,185,129,0.08), transparent 60%),
-      #f8fafc;
-    color: #1f2937; /* gray-800 */
+  :root { color-scheme: light; }
+  body { @apply bg-gray-50 text-gray-900; }
+
+  input, select, textarea {
+    @apply w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm
+           outline-none focus:border-gray-400 focus:ring-2 focus:ring-black/10;
   }
+
+  button {
+    @apply rounded-md border border-gray-300 bg-white px-3 py-2 text-sm
+           hover:bg-gray-50 active:bg-gray-100;
+  }
+
+  table { @apply w-full border-collapse; }
+  thead th { @apply bg-gray-100 px-3 py-2 text-left text-xs font-semibold text-gray-600; }
+  tbody td { @apply border-t border-gray-100 px-3 py-2 text-sm; }
 }
 
-@layer utilities {
-  .glass  { @apply bg-white/80 backdrop-blur border border-white/60; }
-  .card   { @apply rounded-2xl border bg-white shadow-[0_8px_24px_rgba(17,24,39,0.08)] hover:shadow-lg transition; }
-  .chip   { @apply text-[10px] px-2 py-0.5 rounded-full font-medium; }
-  .press  { @apply active:scale-[.98] active:opacity-90; }
-  .smooth { @apply transition-all duration-200 ease-out; }
-  .pill   { @apply inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs; }
+/* Reusable component classes used in App.jsx */
+@layer components {
+  .btn-primary { @apply rounded-md bg-black px-3 py-2 text-sm font-medium text-white shadow
+                         hover:bg-gray-800 active:bg-gray-900 disabled:opacity-60; }
+  .tab        { @apply rounded-md border bg-white px-3 py-1.5 text-sm hover:bg-gray-50; }
+  .tab-active { @apply bg-black text-white border-black; }
 }
